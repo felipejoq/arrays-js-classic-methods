@@ -8,6 +8,7 @@ const btnPush = document.getElementById('btnPush');
 const btnPop = document.getElementById('btnPop');
 const btnShift = document.getElementById('btnShift');
 const btnUnshift = document.getElementById('btnUnshift');
+const btnJoin = document.getElementById('btnJoin');
 
 
 btnPush.addEventListener('click', () => {
@@ -25,6 +26,10 @@ btnShift.addEventListener('click', () => {
 btnUnshift.addEventListener('click', () => {
     unshiftElement('Uruguay');
 });
+
+btnJoin.addEventListener('click', () => {
+    joinElements(COUNTRIES);
+})
 
 
 const pushElement = (element) => {
@@ -45,6 +50,12 @@ const shiftElement = () => {
 const unshiftElement = (element) => {
     COUNTRIES.unshift(element);
     renderList(COUNTRIES, divCountries);
+}
+
+const joinElements = (array) => {
+    const arrJoinResult = array.join('-');
+    divCountries.innerHTML = `<p><strong>Join result:</strong> ${arrJoinResult}</p>`;
+    // renderList(COUNTRIES, divCountries);
 }
 
 
