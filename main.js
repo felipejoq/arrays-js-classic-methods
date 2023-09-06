@@ -9,6 +9,8 @@ const btnPop = document.getElementById('btnPop');
 const btnShift = document.getElementById('btnShift');
 const btnUnshift = document.getElementById('btnUnshift');
 const btnJoin = document.getElementById('btnJoin');
+const btnSpliceRemove = document.getElementById('btnSpliceRemove');
+const btnSpliceAdd = document.getElementById('btnSpliceAdd');
 
 
 btnPush.addEventListener('click', () => {
@@ -29,6 +31,14 @@ btnUnshift.addEventListener('click', () => {
 
 btnJoin.addEventListener('click', () => {
     joinElements(COUNTRIES);
+});
+
+btnSpliceRemove.addEventListener('click', () => {
+    spliceRemove(COUNTRIES);
+});
+
+btnSpliceAdd.addEventListener('click', () => {
+    spliceAdd(COUNTRIES);
 })
 
 
@@ -56,6 +66,22 @@ const joinElements = (array) => {
     const arrJoinResult = array.join('-');
     divCountries.innerHTML = `<p><strong>Join result:</strong> ${arrJoinResult}</p>`;
     // renderList(COUNTRIES, divCountries);
+}
+
+const spliceRemove = (array) => {
+    if (array.length > 0) {
+        array.splice(1, 1);
+    }
+    renderList(COUNTRIES, divCountries);
+}
+
+const spliceAdd = (array) => {
+
+    if (array.length > 0) {
+        array.splice(1, 1, 'España');
+    }
+
+    renderList(COUNTRIES, divCountries);
 }
 
 
