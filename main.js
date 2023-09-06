@@ -1,4 +1,5 @@
-const COUNTRIES = ['Chile', 'Argentina', 'Perú', 'Bolivia', 'Brasil'];
+const original = ['Chile', 'Argentina', 'Perú', 'Bolivia', 'Brasil'];
+const COUNTRIES = [...original];
 
 const divCountries = document.getElementById('countries');
 
@@ -11,6 +12,7 @@ const btnUnshift = document.getElementById('btnUnshift');
 const btnJoin = document.getElementById('btnJoin');
 const btnSpliceRemove = document.getElementById('btnSpliceRemove');
 const btnSpliceAdd = document.getElementById('btnSpliceAdd');
+const btnReset = document.getElementById('btnReset');
 
 
 btnPush.addEventListener('click', () => {
@@ -39,6 +41,15 @@ btnSpliceRemove.addEventListener('click', () => {
 
 btnSpliceAdd.addEventListener('click', () => {
     spliceAdd(COUNTRIES);
+});
+
+btnReset.addEventListener('click', () => {
+    const size = COUNTRIES.length;
+    for(i = 0; i < size; i++){
+        COUNTRIES.pop()
+    }
+    original.forEach(element => COUNTRIES.push(element))
+    renderList(COUNTRIES, divCountries);
 })
 
 
